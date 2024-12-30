@@ -1,5 +1,7 @@
 // AVL 樹的節點類
+
 class AVLTreeNode {
+
     String data;
     int count;
     AVLTreeNode left, right;
@@ -15,9 +17,10 @@ class AVLTreeNode {
 }
 
 public class AVLTree {
+
     private AVLTreeNode root;
-    private int totalynodeCount = 0;
-    private int totalyWordsCount = 0;
+    private int totalynodeCount = 0;//總結點數
+    private int totalyWordsCount = 0;//總字數(還沒寫好)
 
     // 取得節點的高度
     private int height(AVLTreeNode node) {
@@ -69,8 +72,7 @@ public class AVLTree {
         if (node == null) {
             totalynodeCount++;// 總結點數加一
             return new AVLTreeNode(data);
-        }
-        // 使用 String 的比較方法進行插入
+        } // 使用 String 的比較方法進行插入
         else if (data.compareTo(node.data) < 0) {
             node.left = insert(node.left, data);
         } else if (data.compareTo(node.data) > 0) {
@@ -112,6 +114,7 @@ public class AVLTree {
         return node; // 返回未改變的節點指針
     }
 
+    //輸出題目要求格式
     public void showProfile() {
         int i = 0;
         System.out.println("節點[數字/單字]\t出現次數");
@@ -132,21 +135,22 @@ public class AVLTree {
         }
     }
 
-    public void inorderCount(AVLTreeNode node) {
-        if (node != null) {
-            inorderCount(node.left);
-            System.out.print(node.count + " ");
-            inorderCount(node.right);
-        }
-    }
-
-    public void inorderCount() {
-        inorderCount(root);
-        System.out.println("");
-    }
-
+    //取得樹的高度
     public int getHeight() {
         return height(root);
     }
+    //*中序取得輸出每個node的數字(備用)
+    //public void inorderCount(AVLTreeNode node) {
+    //    if (node != null) {
+    //        inorderCount(node.left);
+    //        System.out.print(node.count + " ");
+    //        inorderCount(node.right);
+    //    }
+    //}
+    //*無輸入的版本，不用填root就可以輸出
+    //public void inorderCount() {
+    //    inorderCount(root);
+    //    System.out.println("");
+    //}
 
 }
