@@ -20,7 +20,7 @@ public class AVLTree {
 
     private AVLTreeNode root;
     private int totalynodeCount = 0;//總結點數
-    private int totalyWordsCount = 0;//總字數(還沒寫好)
+    private static int totalyWordsCount = 0;//總字數(還沒寫好)
 
     // 取得節點的高度
     private int height(AVLTreeNode node) {
@@ -79,7 +79,7 @@ public class AVLTree {
             node.right = insert(node.right, data);
         } else {
             node.count++; // 插入重複元素時計數器加一
-            totalyWordsCount++;// 總共字數加一
+            //totalyWordsCount++;// 總共字數加一
             return node;
         }
 
@@ -124,6 +124,7 @@ public class AVLTree {
     // 插入元素到 AVL 樹
     public void insert(String data) {
         root = insert(root, data);
+		totalyWordsCount++;
     }
 
     // 中序遍歷（升序輸出）
@@ -139,6 +140,11 @@ public class AVLTree {
     public int getHeight() {
         return height(root);
     }
+	
+	//取的樹的總字數
+	public int getTotalWordCount(){
+		return this.totalyWordsCount;
+	}
     //*中序取得輸出每個node的數字(備用)
     //public void inorderCount(AVLTreeNode node) {
     //    if (node != null) {

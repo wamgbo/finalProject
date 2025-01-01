@@ -27,13 +27,15 @@ public class WordTree {
         // Path path = Path.of("BBCNews.txt");
         // String text = Files.readString(path);
         // 預處理文字
-        String text = "1 5 10 A APPLE Abs Because Bridge Builder View-Controller abstracts accept you'll";//題目上的範例
+        String text = "1 1 5 10 A APPLE Abs Because Bridge Builder View-Controller abstracts accept you'll";//題目上的範例
         String cleanText[] = preprocessText(text).split(" ");//將字串移除特殊自元用空個代替,再切割空白放入陣列
         String words[] = removeEmptyStrings(cleanText);//移除控格放入陣列，(因為cleanText會有陣列位置是空or NUll,所以還需要處理一次)
         for (var p : words) {//將陣列內容插入tree
             tree.insert(p);
         }
         tree.showProfile();//輸出
+		System.out.println("總共幾個單字:" +tree.getTotalWordCount());
         System.out.println("樹高度:" + tree.getHeight());//高度
+		
     }
 }
