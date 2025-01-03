@@ -19,8 +19,8 @@ class AVLTreeNode {
 public class AVLTree {
 
     private AVLTreeNode root;
-    private int totalynodeCount = 0;//總結點數
-    private static int totalyWordsCount = 0;//總字數(還沒寫好)
+    private int totalynodeCount = 0;// 總結點數
+    private static int totalyWordsCount = 0;// 總字數(還沒寫好)
 
     // 取得節點的高度
     private int height(AVLTreeNode node) {
@@ -79,7 +79,7 @@ public class AVLTree {
             node.right = insert(node.right, data);
         } else {
             node.count++; // 插入重複元素時計數器加一
-            //totalyWordsCount++;// 總共字數加一
+            // totalyWordsCount++;// 總共字數加一
             return node;
         }
 
@@ -114,49 +114,49 @@ public class AVLTree {
         return node; // 返回未改變的節點指針
     }
 
-    //輸出題目要求格式
+    // 輸出題目要求格式
     public void showProfile() {
         int i = 0;
-        System.out.println("節點[數字/單字]\t出現次數");
+        System.out.println("節點[數字/單字]\t\t出現次數");
         inorder(root);
     }
 
     // 插入元素到 AVL 樹
     public void insert(String data) {
         root = insert(root, data);
-		totalyWordsCount++;
+        totalyWordsCount++;
     }
 
     // 中序遍歷（升序輸出）
     public void inorder(AVLTreeNode node) {
         if (node != null) {
             inorder(node.left);
-            System.out.printf("[%s]%16d\n", node.data, node.count);
+            System.out.printf("%-27s%d\n", node.data, node.count);// "-27"是右邊留27個space
             inorder(node.right);
         }
     }
 
-    //取得樹的高度
+    // 取得樹的高度
     public int getHeight() {
         return height(root);
     }
-	
-	//取的樹的總字數
-	public int getTotalWordCount(){
-		return this.totalyWordsCount;
-	}
-    //*中序取得輸出每個node的數字(備用)
-    //public void inorderCount(AVLTreeNode node) {
-    //    if (node != null) {
-    //        inorderCount(node.left);
-    //        System.out.print(node.count + " ");
-    //        inorderCount(node.right);
-    //    }
-    //}
-    //*無輸入的版本，不用填root就可以輸出
-    //public void inorderCount() {
-    //    inorderCount(root);
-    //    System.out.println("");
-    //}
+
+    // 取的樹的總字數
+    public int getTotalWordCount() {
+        return this.totalyWordsCount;
+    }
+    // *中序取得輸出每個node的數字(備用)
+    // public void inorderCount(AVLTreeNode node) {
+    // if (node != null) {
+    // inorderCount(node.left);
+    // System.out.print(node.count + " ");
+    // inorderCount(node.right);
+    // }
+    // }
+    // *無輸入的版本，不用填root就可以輸出
+    // public void inorderCount() {
+    // inorderCount(root);
+    // System.out.println("");
+    // }
 
 }
