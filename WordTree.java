@@ -74,7 +74,7 @@ public class WordTree {
         // 輸出 AVL 樹的統計結果
         tree.showProfile(); // 以題目要求的格式輸出節點與次數
         System.out.print("總共幾個單字:" + tree.getTotalWordCount()); // 總字數
-        System.out.print("總節點:" + tree.getTotalNodeCount()); // 總節點數
-        System.out.println("樹高度:" + tree.getHeight()); // AVL 樹的高度
+        System.out.print(" 總節點:" + tree.getTotalNodeCount()); // 總節點數
+        System.out.println(" 樹高度:" + tree.getHeight()); // AVL 樹的高度
     }
 }
