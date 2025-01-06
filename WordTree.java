@@ -1,12 +1,11 @@
 import java.io.*;
-import java.util.*;
 
 // 移除特殊符號與處理文字
 public class WordTree {
 
     // 預處理文字：移除特殊符號 (,;:.?)\"/\n\t(包含空格)，用空格替代
     static String preprocessText(String text) {
-        return text.replaceAll("[\\(\\),;:\\.\\?\\\\/\\n\\t\\ ]", " ");
+        return text.replaceAll("[\\(\\),;:\\.\\?\\\"\\/\\n\\t\\ ]", " ");
     }
 
     // 動態增加字串到陣列的方法
